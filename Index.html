@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS/index.css">
+        <title>
+            CSGO - LOMMEREGNER
+        </title>
+    </head>
+    <body>
+
+        <div class="heading-image">
+            <!-- <img src="/IMG/showcase.png"> -->
+            <div class="heading-text">
+                <h1>CSGO - LOMMEREGNER</h1>
+            </div>
+        </div>
+        <div class="card round-background">
+            <div class="flex-container">
+                <div class="flex-child">
+
+                    <h1>Case price</h1>: <input type="text" id="caseprice" name="caseprice" value="0.19 €">
+                    <h1>Key price</h1>: <input type="text" id="keyprice" name="keyprice" value="2.35 €">
+                    <h1>Money you have</h1>: <input type="text" id="Moneyyouhave" name="Moneyyouhave" value="25 €">
+                
+                    <button type="button" onclick="myFunction()">Svar</button>
+                    
+
+                </div>
+                <div class="flex-child">
+                    <h1>Answer</h1>
+                    <h1 id="totalcost"></h1>
+                </div>
+            </div>         
+        </div>        
+    </body>
+    <script>
+    function replaceAll(str, find, replace) {
+        return str.replace(new RegExp(escapeRegExp(find), ''), replace);
+    }
+    function myFunction() {
+            
+        var caseprice = document.getElementById("caseprice").value;
+        var keyprice = document.getElementById("keyprice").value;
+        var Moneyyouhave = document.getElementById("Moneyyouhave").value;
+        caseprice = caseprice.replace("€", '');
+        keyprice = keyprice.replace("€", '');
+        Moneyyouhave = Moneyyouhave.replace("€", '');
+        submitOK = "true";
+        let en = +Moneyyouhave/keyprice;
+        let to = +caseprice*keyprice;
+        let svar = en - to;
+        if (!caseprice) {
+            alert("Case price");
+            submitOK = "false";
+        } 
+        if (!keyprice) {
+            alert("You need to type a number in Key price");
+            submitOK = "false";
+        } 
+        if (!Moneyyouhave) {
+            alert("You need to type a number in Money you have");
+            submitOK = "false";
+        } 
+    
+        
+        if (submitOK == "false") {
+            
+            return false;
+        } else {
+            console.log(Moneyyouhave)
+            console.log(keyprice)
+            console.log(caseprice)
+            console.log(en)
+            console.log(to)
+            console.log(svar)
+            document.getElementById("totalcost").innerHTML = "You can open " + Math.floor(svar) + " cases"; 
+        
+        }
+    }
+    </script>
+
+</html>      
