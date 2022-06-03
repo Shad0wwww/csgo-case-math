@@ -59,7 +59,7 @@ body {
                     HEADING
 /////////////////////////////////////////////// */
 .heading-image {
-    background-image: url("/Shad0w/IMAGES/cases.jpeg");
+    background-image: url("cases.jpeg");
     height: 1000px;
     background-position: center;
     background-repeat: no-repeat;
